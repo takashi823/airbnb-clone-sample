@@ -1,14 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
+import Input from "@/components/inputs/Input";
 import Modal from "@/components/modals/Modal";
 import useRegisterModal from "@/hooks/useRegisterModal";
+
+import { RegisterForm, registerSchema } from '@/types/RegisterForm'
 
 /**
  * 新規登録モーダル
@@ -16,6 +21,14 @@ import useRegisterModal from "@/hooks/useRegisterModal";
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterForm>({
+    resolver: zodResolver(registerSchema),
+  });
 
   /** submit処理（新規登録） */
   const onSubmit = () => {
@@ -26,6 +39,33 @@ const RegisterModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome to Airbnb" subtitle="Create an account" />
+      <Input
+        id="email"
+        label="Email"
+        type="email"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="name"
+        label="Name"
+        type="text"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="password"
+        label="Password"
+        type="password"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
     </div>
   );
 
