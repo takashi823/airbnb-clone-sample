@@ -6,6 +6,9 @@ yarn add -D prettier eslint-config-prettier
 ■react-icons
 yarn add react-icons --save
 
+■react-hook-form（フォーム入力用）
+yarn add react-hook-form
+
 ■zod（バリデーションチェック用ライブラリ）
 yarn add zod
 公式：https://zod.dev/?id=introduction
