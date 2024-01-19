@@ -1,11 +1,13 @@
+import "./globals.css";
+
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 
-import "./globals.css";
+import Navbar from "@/components/navbar/Navbar";
 
 const noto = Noto_Sans_JP({
   weight: ["400", "700"],
-  subsets: ["latin"]
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -21,9 +23,10 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={noto.className}>
-          <main className="flex flex-col min-h-screen w-full">
-            {children}
-          </main>
+        <main className="flex flex-col min-h-screen w-full">
+          <Navbar />
+          {children}
+        </main>
       </body>
     </html>
   );
