@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 
+import { AiFillGithub } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
+
 import Button from "@/components/Button";
 import Modal from "@/components/modals/Modal";
 import useRegisterModal from "@/hooks/useRegisterModal";
@@ -25,7 +28,36 @@ const RegisterModal = () => {
 
   /** フッター */
   const footerContent = (
-    <div className="flex flex-col gap-4 mt-3">モーダルのフッター部分</div>
+    <div className="flex flex-col gap-4 mt-3">
+      <hr />
+      {/* Google認証 */}
+      <Button
+        outline
+        label="Continue with Google"
+        icon={FcGoogle}
+        // TODO: 認証処理
+        onClick={() => {}}
+      />
+      {/* github認証 */}
+      <Button
+        outline
+        label="Continue with Github"
+        icon={AiFillGithub}
+        // TODO: 認証処理
+        onClick={() => {}}
+      />
+      <div className="text-neutral-500 text-center mt-4 font-light">
+        <div className="flex flex-row justify-center items-center gap-2">
+          <div>Already have an account</div>
+          <button
+            className="text-neutral-800 cursor-pointer hover:underline"
+            onClick={registerModal.onClose}
+          >
+            Log in
+          </button>
+        </div>
+      </div>
+    </div>
   );
 
   return (
