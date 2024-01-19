@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { AiFillGithub } from "react-icons/ai";
@@ -13,7 +14,7 @@ import Input from "@/components/inputs/Input";
 import Modal from "@/components/modals/Modal";
 import useRegisterModal from "@/hooks/useRegisterModal";
 
-import { RegisterForm, registerSchema } from '@/types/RegisterForm'
+import { RegisterForm, registerSchema } from "@/types/RegisterForm";
 
 /**
  * 新規登録モーダル
@@ -33,6 +34,16 @@ const RegisterModal = () => {
   /** submit処理（新規登録） */
   const onSubmit = () => {
     /** 新規登録の処理 */
+    setIsLoading(true);
+    try {
+      // TODO: 新規登録処理追加
+      console.log("Register Success!!");
+      registerModal.onClose();
+    } catch (error) {
+      toast.error("Something Went Wrong.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   /** コンテンツ */
