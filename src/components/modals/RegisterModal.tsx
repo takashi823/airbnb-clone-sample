@@ -6,6 +6,7 @@ import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 
 import Button from "@/components/Button";
+import Heading from "@/components/Heading";
 import Modal from "@/components/modals/Modal";
 import useRegisterModal from "@/hooks/useRegisterModal";
 
@@ -23,7 +24,9 @@ const RegisterModal = () => {
 
   /** コンテンツ */
   const bodyContent = (
-    <div className="flex flex-col gap-4">モーダルの内容部分</div>
+    <div className="flex flex-col gap-4">
+      <Heading title="Welcome to Airbnb" subtitle="Create an account" />
+    </div>
   );
 
   /** フッター */
