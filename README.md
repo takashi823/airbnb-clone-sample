@@ -11,6 +11,7 @@ yarn add react-hook-form
 
 ■zod（バリデーションチェック用ライブラリ）
 yarn add zod
+yarn add @hookform/resolvers
 公式：https://zod.dev/?id=introduction
 
 ■jotai（状態管理ライブラリ）
